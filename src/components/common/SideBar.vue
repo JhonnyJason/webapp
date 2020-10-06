@@ -1,33 +1,19 @@
 <template>
-  <div
-    name="side-bar"
-    class="side-bar"
-    :class="darkMode ? 'side-bar-dark' : ''"
-  >
-    <b-navbar-brand class="pb-1 brand-icon">
-      <router-link :to="{ name: 'Swap', params: { service: selectedNetwork } }">
-        <img
-          v-if="darkMode"
-          src="@/assets/media/logos/bancor-white.png"
-          height="35px"
-          class="mb-1"
-        />
-        <img
-          v-else
-          src="@/assets/media/logos/bancor-black.png"
-          height="35px"
-          class="mb-1"
-        />
-      </router-link>
-    </b-navbar-brand>
+  <div name="side-bar">
     <div class="d-none d-md-block">
-      <side-bar-left :data="data" @sideLinkClicked="sideLinkClicked" />
+      <side-bar-left
+        :darkMode="darkMode"
+        :data="data"
+        @sideLinkClicked="sideLinkClicked"
+      />
     </div>
     <div class="d-block d-md-none">
-      <side-bar-bottom :data="data" @sideLinkClicked="sideLinkClicked" />
+      <side-bar-bottom
+        :darkMode="darkMode"
+        :data="data"
+        @sideLinkClicked="sideLinkClicked"
+      />
     </div>
-    <div class="middle-space" />
-    <p class="tm-text">© Bancor 2020</p>
   </div>
 </template>
 
@@ -73,6 +59,9 @@ export default class SideBar extends Vue {
   openUrl(url: string) {
     window.open(url, "_blank");
   }
+  get darkMode() {
+    return vxm.general.darkMode;
+  }
 
   sideLinkClicked(newSelected: string) {
     if (this.selectedLink == newSelected) return;
@@ -91,14 +80,9 @@ export default class SideBar extends Vue {
       this.openUrl(`${path}/data`);
     }
     return;
-    // const linkSelected = this.links.find(link => link.key == newSelected)!;
-    // this.$router.push({
-    // name: linkSelected.route,
-    // params: { service: this.$route.params.service }
-    // });
-    // this.selectedLink = newSelected;
   }
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+</style>

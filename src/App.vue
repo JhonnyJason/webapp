@@ -87,13 +87,15 @@ import ModalLogin from "@/components/modals/ModalLogin.vue";
 import { vxm } from "@/store/";
 import { WalletProvider } from "eos-transit";
 import wait from "waait";
-import SideBarLeft from "@/components/common/SideBarLeft.vue";
 import SideBar from "@/components/common/SideBar.vue";
+import SideBarLeft from "@/components/common/SideBarLeft.vue";
+import SideBarBottom from "@/components/common/SideBarBottom.vue";
 
 @Component({
   components: {
     SideBar,
-    SideBarLeft,
+    // SideBarLeft,
+    // SideBarBottom,
     ModalLogin
   }
 })
@@ -236,183 +238,5 @@ h2 {
   overflow-y: auto;
   overflow-x: auto;
   padding: 12px;
-}
-.side-bar {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  min-width: 230px;
-  background-color: #e6ebf2;
-  z-index: 10;
-  @media (max-width: 450px) {
-    position: fixed;
-    overflow: hidden;
-    top: calc(100vh - 56px);
-    left: 0;
-    width: 100%;
-    height: 56px;
-    background-color: white;
-    border-top: 1px solid #e6ebf2;
-  }
-  .brand-icon {
-    @media (max-width: 450px) {
-      display: none;
-    }
-    margin-top: 18px;
-    margin-left: 25px;
-    width: 80.9px;
-    height: 22px;
-    object-fit: contain;
-  }
-  .side-bar-links {
-    margin-top: 28px;
-    @media (max-width: 450px) {
-      width: 100%;
-      height: 56px;
-      align-items: center;
-      margin-top: 0px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-    }
-  }
-  .side-bar-link {
-    padding-left: 25px;
-    width: 100%;
-    cursor: pointer;
-    height: 40px;
-    position: relative;
-    @media (max-width: 450px) {
-      padding-left: 0px;
-      display: flex;
-      flex-direction: column;
-    }
-    span {
-      height: 40px;
-      display: inline-flex;
-      align-items: center;
-      font-family: Inter;
-      font-size: 14px;
-      font-weight: 500;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #6b7c93;
-      @media (max-width: 450px) {
-        align-self: center;
-        font-size: 10px;
-      }
-    }
-    .side-bar-link-icon {
-      align-self: center;
-      width: 14px;
-      height: 14px;
-      margin-right: 12px;
-      @media (max-width: 450px) {
-        width: 32px;
-        height: 32px;
-        margin-right: 0px;
-      }
-    }
-  }
-  .middle-space {
-    flex-grow: 1;
-  }
-  .tm-text {
-    width: 88px;
-    height: 15px;
-    font-family: Inter;
-    font-size: 12px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #97a5b8;
-    margin-left: 25px;
-    @media (max-width: 450px) {
-      display: none;
-    }
-  }
-  .clicked-link {
-    span {
-      color: #0f59d1;
-    }
-    img {
-      filter: invert(0.6) sepia(1) saturate(5) hue-rotate(195deg)
-        brightness(0.7);
-      color: #0f59d1;
-    }
-    @media (min-width: 450px) {
-      background-color: #f8f9fd;
-      border-left: 2px solid #0f59d1;
-      &::before {
-        content: "";
-        position: absolute;
-        left: 202px;
-        top: -26px;
-        width: 26px;
-        height: 26px;
-        background-color: transparent;
-        border-bottom-right-radius: 14px;
-        box-shadow: 0 11px 0 0 #f8f9fd;
-      }
-      &::after {
-        content: "";
-        position: absolute;
-        left: 202px;
-        top: 40px;
-        width: 26px;
-        height: 26px;
-        background-color: transparent;
-        border-top-right-radius: 14px;
-        box-shadow: 0 -11px 0 0 #f8f9fd;
-      }
-    }
-  }
-}
-.side-bar-dark {
-  background-color: #0a2540;
-}
-.side-bar-link-dark {
-  span {
-    color: #aaa !important;
-  }
-}
-.clicked-link-dark {
-  span {
-    color: #fff !important;
-  }
-  img {
-    filter: invert(0.2) saturate(5) brightness(1);
-    color: #0f59d1;
-  }
-  @media (min-width: 450px) {
-    background-color: #1c344e;
-    border-left: 2px solid #0f59d1;
-    &::before {
-      content: "";
-      position: absolute;
-      left: 202px;
-      top: -26px;
-      width: 26px;
-      height: 26px;
-      background-color: transparent;
-      border-bottom-right-radius: 14px;
-      box-shadow: 0 11px 0 0 #1c344e;
-    }
-    &::after {
-      content: "";
-      position: absolute;
-      left: 202px;
-      top: 40px;
-      width: 26px;
-      height: 26px;
-      background-color: transparent;
-      border-top-right-radius: 14px;
-      box-shadow: 0 -11px 0 0 #1c344e;
-    }
-  }
 }
 </style>
